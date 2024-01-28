@@ -15,7 +15,7 @@
     <script>
         async function searchCSV() {
             const number = document.getElementById('number').value;
-            const response = await fetch('Aulas_DNI.csv');
+            const response = await fetch('Aulas_nombres_DNI.csv');
             const data = await response.text();
             const rows = data.split('\n').slice(1);
             const filteredRows = rows.filter(row => row.split(',')[0] === number);
@@ -23,9 +23,9 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Comisión en Guaraní: ${row[1]}<br> Aula de Teórico: ${row[2]}<br> Aula de Práctico: ${row[3]}`;
+                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión en Guaraní: ${row[2]}<br> Aula de Teórico: ${row[3]}<br> Aula de Práctico: ${row[4]}`;
             } else {
-                output.innerHTML = 'No encontramos tu DNI';
+                output.innerHTML = 'No encontramos tu DNI.';
             }
         }
     </script>
