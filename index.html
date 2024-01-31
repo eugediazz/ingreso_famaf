@@ -15,7 +15,7 @@
     <script>
         async function searchCSV() {
             const number = document.getElementById('number').value;
-            const response = await fetch('Aulas_nuevo.csv');
+            const response = await fetch('Aulas_31_01.csv');
             const data = await response.text();
             const rows = data.split('\n').slice(1);
             const filteredRows = rows.filter(row => row.split(',')[0] === number);
