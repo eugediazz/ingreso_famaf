@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar aula CN2024-FAMAF </title>
+</head>
+<body>
+    <h1>Nota del Primer Parcial (curso de nivelación - febrero - FAMAF)</h1>
+    <label for="number">DNI/CUIL/PAS (sin puntos):</label>
+    <input type="number" id="number" name="number">
+    <button onclick="searchCSV()">Buscar</button>
+    <h2>Resultado:</h2>
+    <div id="output"></div>
+    <script>
+        async function searchCSV() {
+            const number = document.getElementById('number').value;
+            const response = await fetch('Buscar_1p.csv');
+            const data = await response.text();
+            const rows = data.split('\n').slice(1);
+            const filteredRows = rows.filter(row => row.split(',')[0] === number);
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+            if (filteredRows.length > 0) {
+                const row = filteredRows[0].split(',');
+                output.innerHTML = `Estudiante: ${row[1]}<br> Puntaje: ${row[2]}<br> Resultado: ${row[3]}`;
+            } else {
+                output.innerHTML = 'No encontramos tu DNI.';
+            }
+        }
+    </script>
+</body>
+</html>
