@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar nota CN2024-FAMAF </title>
+    <title>Condición final CN2024-FAMAF </title>
 </head>
 <body>
-    <h1>Nota del Primer Parcial (curso de nivelación - febrero - FAMAF)</h1>
+    <h1>Resultados Curso de nivelación - febrero - FAMAF</h1>
+    <h2> La condición final tiene en cuenta notas de parciales, asistencias y autoevaluaciones</h2>
     <label for="number">DNI/CUIL/PAS (sin puntos):</label>
     <input type="text" id="number" name="number">
     <button onclick="searchCSV()">Buscar</button>
@@ -15,7 +16,7 @@
     <script>
         async function searchCSV() {
             const number = document.getElementById('number').value;
-            const response = await fetch('Buscar_1p.csv');
+            const response = await fetch('final.csv');
             const data = await response.text();
             const rows = data.split('\n').slice(1);
             const filteredRows = rows.filter(row => row.split(',')[0] === number);
@@ -23,7 +24,7 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Estudiante: ${row[1]}<br> Puntaje: ${row[2]}<br> Resultado: ${row[3]}`;
+                output.innerHTML = `Estudiante: ${row[1]}<br> Puntaje 1er parcial: ${row[2]}<br> Puntaje 2do parcial: ${row[3]}<be> Condición final: ${row[4]}`;
             } else {
                 output.innerHTML = 'No encontramos tu DNI.';
             }
