@@ -7,7 +7,6 @@
 </head>
 <body>
     <h1>Curso de nivelación - 2C -2024 - FAMAF</h1>
-    <h2> Comisión y Aula </h2>
     <label for="number">DNI/CUIL/PAS (sin puntos):</label>
     <input type="text" id="number" name="number">
     <button onclick="searchCSV()">Buscar</button>
@@ -16,7 +15,7 @@
     <script>
         async function searchCSV() {
             const number = document.getElementById('number').value;
-            const response = await fetch('busca_aula.csv');
+            const response = await fetch('1er_parcial.csv');
             const data = await response.text();
             const rows = data.split('\n').slice(1);
             const filteredRows = rows.filter(row => row.split(',')[0] === number);
@@ -24,7 +23,7 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión: ${row[2]}<br> Aula: ${row[3]}`;
+                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión: ${row[4]}<br> Puntaje 1er parcial: ${row[2]}%   -- CALIFICACIÓN: ${row[3]}`;
             } else {
                 output.innerHTML = 'No encontramos tu DNI.';
             }
