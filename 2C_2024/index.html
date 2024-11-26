@@ -15,7 +15,7 @@
     <script>
         async function searchCSV() {
             const number = document.getElementById('number').value;
-            const response = await fetch('1er_parcial.csv');
+            const response = await fetch('condicion_final.csv');
             const data = await response.text();
             const rows = data.split('\n').slice(1);
             const filteredRows = rows.filter(row => row.split(',')[0] === number);
@@ -23,7 +23,11 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión: ${row[4]}<br> Puntaje 1er parcial: ${row[2]}%   -- CALIFICACIÓN: ${row[3]}`;
+                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión: ${row[2]}<br> 
+                Puntaje 1er parcial: ${row[3]}%   -- CALIFICACIÓN: ${row[4]}<br> 
+                Puntaje 2do parcial: ${row[5]}%   -- CALIFICACIÓN: ${row[6]}<br>
+                <h2>CONDICIÓN FINAL</h2> (considera parciales, asistencias/tareas , autoevaluaciones):<br>
+                ${row[7]}`;
             } else {
                 output.innerHTML = 'No encontramos tu DNI.';
             }
