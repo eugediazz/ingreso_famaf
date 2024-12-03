@@ -26,7 +26,7 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Estudiante: ${row[1]}<br> Condición: ${row[2]}<br> Puntaje obtenido: ${row[3]} % <br> CALIFICACIÓN: ${row[4]}`;
+                output.innerHTML = `Estudiante: ${row[1]}<br> Condición: ${row[2]}<br> Puntaje obtenido: ${row[3]} % <br> <h3>CALIFICACIÓN: ${row[4]}</h3>`;
             } else {
                 output.innerHTML = 'No encontramos tu DNI.';
             }
