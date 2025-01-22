@@ -11,3 +11,4 @@
 - CUIDADO CON "APELLIDO NOMBRE", sacar la coma que los separa antes de descargar el archivo desde el DRIVE
 
 ## Para este programa la primera columna es la columna 0.
+## Para compartir: la página web es https://eugediazz.github.io/ingreso_famaf/ SEGUIDA POR EL NOMBRE DE LA EDICIÓN
