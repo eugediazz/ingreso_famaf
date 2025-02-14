@@ -23,9 +23,12 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión: ${row[2]}<br> 
+                output.innerHTML = `Estudiante: ${row[1]}<br> 
+                <!-- esto es un comentario
+                Comisión: ${row[2]}<br> 
                 Aula Teórico: ${row[3]}<br> 
-                Aula Práctico: ${row[4]}<br>`;
+                -->
+                Puntaje: ${row[4]}<br>`;
                 } else {
                 output.innerHTML = 'No encontramos tu DNI.';
             }
