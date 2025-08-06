@@ -23,7 +23,8 @@
             output.innerHTML = '';
             if (filteredRows.length > 0) {
                 const row = filteredRows[0].split(',');
-                output.innerHTML = `Estudiante: ${row[1]}<br> Comisión: ${row[2]}`;
+                output.innerHTML = `Estudiante: ${row[1]}<br>
+                Comisión: ${row[2]}
                 <!-- AQUI ESTA COMENTARIADO
                 <br>
                 Puntaje 1er parcial: ${row[3]}%   -- CALIFICACIÓN: ${row[4]}<br> 
@@ -31,6 +32,7 @@
                 <h2>CONDICIÓN FINAL</h2> (considera parciales, asistencias/tareas , autoevaluaciones):<br>
                 <h2>${row[7]}</h2>`;
                 -->
+                    `;
             } else {
                 output.innerHTML = 'No encontramos tu DNI.';
             }
