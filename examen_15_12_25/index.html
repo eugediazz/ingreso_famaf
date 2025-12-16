@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESULTADOS PROVISORIOS EXAMEN </title>
+</head>
+<body>
+    <h1>EXAMEN Curso Nivelación - 15/12/25 - FAMAF</h1>
+    <h2> LA CALIFICACIÓN FINAL DEL EXAMEN ES APROBADO ó REPROBADO</h2>
+    <h3>Regulares: se aprueba con 40 puntos. Libres: se aprueba con 50 puntos</h3>
+    <h4>La muestra de exámenes es el miércoles 17 de Diciembre a las 14h en el aula 12 de FAMAF</h4>
+    <label for="number">DNI/CUIL/PAS (sin puntos):</label>
+    <input type="text" id="number" name="number">
+    <button onclick="searchCSV()">Buscar</button>
+    <h2>Resultado:</h2>
+    <div id="output"></div>
+    <script>
+        async function searchCSV() {
+            const number = document.getElementById('number').value;
+            const response = await fetch('nota_examen_15_12_25.csv');
+            const data = await response.text();
+            const rows = data.split('\n').slice(1);
+            const filteredRows = rows.filter(row => row.split(',')[0] === number);
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+            if (filteredRows.length > 0) {
+                const row = filteredRows[0].split(',');
+                output.innerHTML = `Estudiante: ${row[1]}<br> Condición: ${row[2]}<br> Puntaje obtenido: ${row[3]} puntos<br> CALIFICACIÓN: ${row[4]}`;
+            } else {
+                output.innerHTML = 'No encontramos tu DNI.';
+            }
+        }
+    </script>
+</body>
+</html>
