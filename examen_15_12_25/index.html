@@ -18,7 +18,7 @@
     <script>
         async function searchCSV() {
             const number = document.getElementById('number').value;
-            const response = await fetch('nota_examen_15_12_25.csv');
+            const response = await fetch('calificacion.csv');
             const data = await response.text();
             const rows = data.split('\n').slice(1);
             const filteredRows = rows.filter(row => row.split(',')[0] === number);
